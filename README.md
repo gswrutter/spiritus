@@ -7,8 +7,6 @@ This system is designed to be lightweight, secure, multi-purpose, and capable of
 
 Checklist of thing to investigate:
 
--[] test
-
--[ ] test
-
--[x] test
+- [] test
+- [ ] test
+- [x] test
