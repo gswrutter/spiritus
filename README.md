@@ -6,6 +6,7 @@ The purpose of this repo is to contain all the configuration scripts that I migh
 This system is designed to be lightweight, secure, multi-purpose, and capable of running on a number of my devices, including a 2-1 high-end laptop, and my desktop/server running KVM with a gaming Windows VM; all of this from a USB thumbdrive optimized to reduce reads/writes.
 
 Checklist of thing to investigate:
+
 [] test
 [ ] test
 [x] test
