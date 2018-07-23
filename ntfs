@@ -19,4 +19,5 @@ ls -l /dev/disk/by-partuuid/
 
 QEMU
 qemu-img create -f qcow2 image_file 4G
-sudo qemu-system-x86_64 -m 2G -cdrom /mnt/PoolPart.50c0ec5c-21ca-4844-af03-f1bfc38da1d3/Software/OS\ \&\ Hypervisors/Windows/Windows\ 10/Microsoft\ Windows\ 10\ Enterprise\ x64\ Clean\ ISO\ -\ use\ this\ one/en_windows_10_enterprise_x64_dvd_6851151.iso -boot order=d -drive file=/vm/windows10,format=qcow2
+sudo qemu-system-x86_64 -enable-kvm -machine q35,accel=kvm -m 2G -cdrom /mnt/PoolPart.50c0ec5c-21ca-4844-af03-f1bfc38da1d3/Software/OS\ \&\ Hypervisors/Windows/Windows\ 10/Microsoft\ Windows\ 10\ Enterprise\ x64\ Clean\ ISO\ -\ use\ this\ one/en_windows_10_enterprise_x64_dvd_6851151.iso -boot order=d -drive file=/vm/windows10,format=qcow2
+-device intel-iommu OR intel_iommu=on #may not be able to use the 1st. One of these is needed for PCI-passthrough
