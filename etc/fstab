@@ -1,0 +1,26 @@
+ Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/sdc3 LABEL=ARCH_201807
+UUID=e007f8b1-975f-4288-881a-fd063f573eb0       /               ext4            rw,noatime      0 1
+
+# /dev/sdc2 LABEL=ARCH_201807
+UUID=4D5E-69D9          /boot           vfat            rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso$
+
+# Set /home/george/Downloads to tmpfs
+tmpfs    /home/george/Downloads         tmpfs    nodev,nosuid  0 0
+
+# Set /home/george/.cache to tmpsf
+tmpfs   /home/george/.cache     tmpfs   noatime,nodev,nosuid,size=400M  0       0
+
+# Set SSD to mount to /vm for VM storage.
+
+
+# Mount NTFS drives as RO.
+# Options
+## ro  Mount the filesystem read-only.
+## utf8  Use UTF-8 for converting file names.
+PARTUUID=dac4ce21-8539-46b4-8313-b323200fa807   /mnt/ntfs_8TB_disk1 ntfs-3g ro,utf8 0 0
+PARTUUID=7986b561-04b0-4c59-adea-7677f4a14a51   /mnt/ntfs_8TB_disk2 ntfs-3g ro,utf8 0 0
+PARTUUID=2c4cd02d-730e-4d0f-8589-61129d0ff1e4   /mnt/ntfs_4TB_disk ntfs-3g ro,utf8 0 0
