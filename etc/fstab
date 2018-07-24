@@ -15,7 +15,7 @@ tmpfs    /home/george/Downloads         tmpfs    nodev,nosuid  0 0
 tmpfs   /home/george/.cache     tmpfs   noatime,nodev,nosuid,size=400M  0       0
 
 # Set SSD to mount to /vm for VM storage.
-
+PARTUUID=bfec72c4-3699-4b3b-aa56-04967499ffed /vm ext4 defaults 0 0
 
 # Mount NTFS drives as RO.
 # Options
