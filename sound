@@ -1,1 +1,20 @@
+# Kernel driver for audio/sound is built-in. It's known as ALSA.
+# PulseAudio is a sound server that integrates with ALSA. The server is required to get sound.
+sudo pacman -S pulseaudio
+
+# Graphical controller for PulseAudio.
+sudo pacman -S pavucontrol
+
+XFCE PulseAudio Plugin
 sudo pacman -S xfce4-pulseaudio-plugin
+
+# May have to run:
+pulseaudio --start
+# If "Establishing connection to PulseAudio. Please wait..." comes up.
+
+
+# Chrome Config
+# https://bbs.archlinux.org/viewtopic.php?id=211906
+# https://www.reddit.com/r/linux/comments/60o1l1/chrome_on_linux_needs_to_support_hw_video/
+chrome://flags/
+Override software rendering list = Enabled
