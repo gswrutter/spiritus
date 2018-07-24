@@ -8,7 +8,7 @@
 UUID=e007f8b1-975f-4288-881a-fd063f573eb0       /               ext4            rw,noatime      0 1
 
 # /dev/sdc2 LABEL=ARCH_201807
-UUID=4D5E-69D9          /boot           vfat            rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso$
+UUID=4D5E-69D9          /boot           vfat            rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro	0 	2
 
 # Set /home/george/Downloads to tmpfs
 tmpfs    /home/george/Downloads         tmpfs    nodev,nosuid  0 0
@@ -26,3 +26,4 @@ PARTUUID=bfec72c4-3699-4b3b-aa56-04967499ffed /vm ext4 defaults 0 0
 PARTUUID=dac4ce21-8539-46b4-8313-b323200fa807   /mnt/ntfs_8TB_disk1 ntfs-3g ro,utf8 0 0
 PARTUUID=7986b561-04b0-4c59-adea-7677f4a14a51   /mnt/ntfs_8TB_disk2 ntfs-3g ro,utf8 0 0
 PARTUUID=2c4cd02d-730e-4d0f-8589-61129d0ff1e4   /mnt/ntfs_4TB_disk ntfs-3g ro,utf8 0 0
+
