@@ -1,6 +1,8 @@
 # Static information about the filesystems.
 # See fstab(5) for details.
 
+##### "mount -a" to reload fstab at runtime. #####
+
 # <file system> <dir> <type> <options> <dump> <pass>
 # /dev/sdc3 LABEL=ARCH_201807
 UUID=e007f8b1-975f-4288-881a-fd063f573eb0       /               ext4            rw,noatime      0 1
