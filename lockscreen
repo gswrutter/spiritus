@@ -1,0 +1,6 @@
+yaourt -S xfce4-session-git
+yaourt -S xflock4
+xfconf-query -c xfce4-session -p /general/LockCommand -s "dm-tool lock" --create -t string
+xfconf-query -c xfce4-session -p /general/LockCommand -s "xlock -mode blank -dpmsoff 3"
+
+# Set Super+l for lockscreen in the keyboard settings.
