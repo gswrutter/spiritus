@@ -12,3 +12,7 @@ xfconf-query -c xfce4-session -p /general/LockCommand -s "xlock -mode blank -dpm
 # This can be used to get the current state of the monitor.
 # Still trying to figure out how to get the DPMS status without having to run a wait-script.
 (xset -q|grep Monitor|awk '{print $3;}')
+
+# https://serverfault.com/questions/192335/poll-monitor-a-linux-commands-output
+watch #command that needs terminal, but looks for change in commnds every x seconds.
+while true; do xset -q | grep Monitor; sleep 10; done # This works, but use above command.
