@@ -1,6 +1,14 @@
+# https://www.linuxquestions.org/questions/mandriva-30/how-to-get-lcd-monitor-backlight-off-with-xlock-254542/
+https://unix.stackexchange.com/questions/101806/why-doesnt-my-screen-lock-in-xfce
+
 yaourt -S xfce4-session-git
 yaourt -S xflock4
 xfconf-query -c xfce4-session -p /general/LockCommand -s "dm-tool lock" --create -t string
 xfconf-query -c xfce4-session -p /general/LockCommand -s "xlock -mode blank -dpmsoff 3"
 
 # Set Super+l for lockscreen in the keyboard settings.
+
+# Locking works, and will turn off screens, but locking is not invoked when the screens go dark on their own.
+# This can be used to get the current state of the monitor.
+# Still trying to figure out how to get the DPMS status without having to run a wait-script.
+(xset -q|grep Monitor|awk '{print $3;}')
