@@ -1,0 +1,5 @@
+# Chrome Config
+# https://bbs.archlinux.org/viewtopic.php?id=211906
+# https://www.reddit.com/r/linux/comments/60o1l1/chrome_on_linux_needs_to_support_hw_video/
+chrome://flags/
+Override software rendering list = Enabled
