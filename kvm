@@ -14,3 +14,8 @@ ebtables dnsmasq bridge-utils openbsd-netcat
 sudo pacman -S virt-manager
 sudo systemctl enable libvirtd.service
 sudo systemctl start libvirtd.service
+
+sudo touch /etc/modprobe.d/blacklist-ipv6.conf
+sudo echo "install ipv6 /bin/true" >> /etc/modprobe.d/blacklist-ipv6.conf
+sudo echo "blacklist ipv6" >> /etc/modprobe.d/blacklist-ipv6.conf
+# reboot system
