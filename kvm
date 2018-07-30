@@ -19,3 +19,12 @@ sudo touch /etc/modprobe.d/blacklist-ipv6.conf
 sudo echo "install ipv6 /bin/true" >> /etc/modprobe.d/blacklist-ipv6.conf
 sudo echo "blacklist ipv6" >> /etc/modprobe.d/blacklist-ipv6.conf
 # reboot system
+
+
+# Edit /etc/lvm/lvm.conf
+issue_discards = 1 # enables TRIM
+
+# Ensure package "lvm2" is installed.
+
+# See what is accessing a certain device:
+sudo  fuser -m -v /dev/sda5
