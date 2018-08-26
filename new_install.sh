@@ -42,10 +42,10 @@ cd /home/$USERNAME/
 mkdir new_install
 cd new_install
 wget https://aur.archlinux.org/cgit/aur.git/snapshot/ttf-iosevka.tar.gz
-untar
-unzip
+unzip ttf-iosevka.tar.gz
+tar -xvf ttf-iosevka.tar
 cd ttf-iosevka
-sudo makepkg -si ...
+sudo makepkg -si PKGBUILD
 
 
 EOF
