@@ -1,3 +1,7 @@
+#################################
+# Purpose of this Script:
+# This will get a basic install of Arch Linux up with Cinnamor desktop, Bluetooth, Zsh, KVM, and sane defaults .
+
 ##### Installation prior to chroot'ing #####
 
 
@@ -47,5 +51,12 @@ tar -xvf ttf-iosevka.tar
 cd ttf-iosevka
 sudo makepkg -si PKGBUILD
 
+##### Bluetooth #####
+# https://github.com/blueman-project/blueman/issues/547
+# https://wiki.archlinux.org/index.php/Bluetooth_headset
+# https://wiki.archlinux.org/index.php/bluetooth
+sudo pacman -Syul pulseaudio pulseaudio-bluetooth pulseaudio-alsa bluez bluez-libs bluez-utils bluez-firmware pavucontrol blueman
+sudo systemctl enable bluetooth.service
+sudo systemctl start bluetooth.service
 
 EOF
