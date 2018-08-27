@@ -84,7 +84,39 @@ makepkg -si PKGBUILD
 sudo echo 'ATTRS{idVendor}=="04f9", ATTRS{idProduct}=="60a0", MODE="0664", GROUP="scanner", ENV{libsane_matched}="yes"' /usr/lib/udev/rules.d/49-sane-missing-scanner.rules
 # Unplug and plug scanner back in.
 
+##### KVM
+# Nested Virtualization
+sudo touch /etc/modprobe.d/kvm_intel.conf
+sudo echo "options kvm_intel nested=1" >> /etc/modprobe.d/kvm_intel.conf
+###
+<<COMMENT
+Enable the "host passthrough" mode to forward all CPU features to the guest system:
+# - If using QEMU, run the guest virtual machine with the following command: qemu-system-x86_64 -enable-kvm -cpu host.
+# - If using virt-manager, change the CPU model to host-passthrough (it will not be in the list, just write it in the box).
+# - If using virsh, use virsh edit vm-name and change the CPU line to <cpu mode='host-passthrough' check='partial'/>
+COMMENT
+### Install QEMU core and libvirt abstraction CLI.
+sudo pacman -Syu qemu libvirt -y
+## Install tools to manage basic networking for VMs.
+sudo pacman -Syu ebtables dnsmasq bridge-utils openbsd-netcat -y
+## Install libvirt GUI management.
+sudo pacman -Syu q virt-manager -y
+sudo systemctl enable libvirtd.service
+sudo systemctl start libvirtd.service
 
+sudo touch /etc/modprobe.d/blacklist-ipv6.conf
+sudo echo "install ipv6 /bin/true" >> /etc/modprobe.d/blacklist-ipv6.conf
+sudo echo "blacklist ipv6" >> /etc/modprobe.d/blacklist-ipv6.conf
+# reboot system
+
+
+# Edit /etc/lvm/lvm.conf
+issue_discards = 1 # enables TRIM
+
+# Ensure package "lvm2" is installed.
+
+# See what is accessing a certain device:
+sudo  fuser -m -v /dev/sda5
 
 
 EOF
