@@ -19,6 +19,15 @@ cat << EOF | arch-chroot /mnt
 
 sudo pacman -Syu chromium wget -y
 
+# Chromium
+# https://wiki.archlinux.org/index.php/chromium
+# https://aur.archlinux.org/packages/chromium-widevine/
+sudo pacman -Syu chromium wget -y
+wget https://aur.archlinux.org/cgit/aur.git/snapshot/chromium-widevine.tar.gz
+tar -xvf chromium-widevine.tar.gz
+cd chromium-widevine
+makepkg -sri PKGBUILD
+
 
 ##### Fix for Nemo's "Open Terminal Here" and Guake #####
 # https://medium.com/cognitio/open-guake-terminal-here-nemo-plugin-cd8e1af9ec0a
