@@ -7,7 +7,6 @@
 
 
 
-
 ## This might be needed instead of the following method.
 # https://stackoverflow.com/questions/8157931/bash-executing-commands-from-within-a-chroot-and-switch-user
 #chroot /chroot_dir /bin/bash -c "su - -c ./startup.sh"
@@ -59,5 +58,24 @@ sudo makepkg -si PKGBUILD
 sudo pacman -Syul pulseaudio pulseaudio-bluetooth pulseaudio-alsa bluez bluez-libs bluez-utils bluez-firmware pavucontrol blueman
 sudo systemctl enable bluetooth.service
 sudo systemctl start bluetooth.service
+
+
+
+
+##### Scanning
+sudo pacman -Syu sane
+# Install driver for ADS-2000
+wget https://aur.archlinux.org/cgit/aur.git/snapshot/brscan4.tar.gz
+gunzip brscan4.tar.gz
+tar -xvf brscan4.tar
+cd brscan4
+makepkg -si PKGBUILD
+
+# Permission problem for the scanner. Needs sudo to run. The below fixes that.
+sudo echo 'ATTRS{idVendor}=="04f9", ATTRS{idProduct}=="60a0", MODE="0664", GROUP="scanner", ENV{libsane_matched}="yes"' /usr/lib/udev/rules.d/49-sane-missing-scanner.rules
+# Unplug and plug scanner back in.
+
+
+
 
 EOF
