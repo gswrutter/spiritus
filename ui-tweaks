@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Apps and tweaks to the desktop to make life easier, and customize to my tastes.
+
+# Install EasyStroke. Similar to StrokesPlus for windows. Has to be trained from the ground up, but pretty easy to do. X11 only.
+sudo pacman -Syu easystroke
