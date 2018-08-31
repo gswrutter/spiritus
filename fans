@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Control automatic fan adjustment for desktop.
+
+
+sudo pacman -Syu lm_sensors dmidecode psensor -y
