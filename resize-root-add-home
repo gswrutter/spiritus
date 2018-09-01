@@ -18,6 +18,7 @@ Just giving you an example let's say I have a logical volume "backup" 40 GB's on
 First command checks to see what the minimum size is, let's pretend it's lower than 20GB's so I proceed, the second command reduces the volume to it's minimum size, the 4th reduces the logical volume to 20GB's, the last command causes the filesystem to fill up the logical volume.
 Code:
 sudo resize2fs -P /dev/ubuntu/backup
+sudo e2fsck -f /dev/ubuntu/backup
 sudo resize2fs -M /dev/ubuntu/backup
 sudo lvresize ubuntu/backup -L 20GB
 sudo resize2fs /dev/ubuntu/backup
