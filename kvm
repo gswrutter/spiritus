@@ -37,4 +37,10 @@ sudo modprobe virtio
 /etc/modprobe.d/kvm_intel.conf
 options kvm_intel nested=1
 
+# UEFI support for VMs:
+sudo pacman -Syu ovmf --noconfirm
+echo 'nvram = [' | sudo tee --append /etc/libvirt/qemu.conf
+echo '"/usr/share/ovmf/x64/OVMF_CODE.fd:/usr/share/ovmf/x64/OVMF_VARS.fd"' | sudo tee --append /etc/libvirt/qemu.conf
+echo ']'  | sudo tee --append /etc/libvirt/qemu.conf
+sudo systemctl restart libvirtd.service
 
