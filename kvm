@@ -44,3 +44,5 @@ echo '"/usr/share/ovmf/x64/OVMF_CODE.fd:/usr/share/ovmf/x64/OVMF_VARS.fd"' | sud
 echo ']'  | sudo tee --append /etc/libvirt/qemu.conf
 sudo systemctl restart libvirtd.service
 
+# Install SPICE viewer:
+sudo pacman -Syu virt-viewer --noconfirm
