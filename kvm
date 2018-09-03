@@ -28,3 +28,13 @@ issue_discards = 1 # enables TRIM
 
 # See what is accessing a certain device:
 sudo  fuser -m -v /dev/sda5
+
+# Load and install virtio kernel module:
+sudo touch /etc/modules-load.d/virtio.conf
+sudo echo "virtio" >> /etc/modules-load.d/virtio.conf
+sudo modprobe virtio
+
+/etc/modprobe.d/kvm_intel.conf
+options kvm_intel nested=1
+
+
