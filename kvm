@@ -50,3 +50,6 @@ sudo pacman -Syu virt-viewer --noconfirm
 # Enable VT-d on Intel processor:
 sudo nano /boot/loader/entries/arch.conf
 # add "intel_iommu=on iommu=pt" to options.
+
+# Enable default NAT network to auto-start:
+sudo virsh net-autostart --network default
