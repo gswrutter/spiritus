@@ -1,0 +1,28 @@
+# https://wiki.libvirt.org/page/Guest_can_reach_outside_network,_but_can't_reach_host_(macvtap)
+There is an alternate solution which preserves NetworkManager compatibility while allowing guest and host to directly communicate. In short, the solution is use libvirt to create an isolated network, and give each guest a second interface that is connected to this network; host<-->guest communication will then take place over the isolated network.
+
+1) Save the following XML to /tmp/isolated.xml:
+
+   <network>
+     <name>isolated</name>
+       <ip address='192.168.254.1' netmask='255.255.255.0'>
+       <dhcp>
+         <range start='192.168.254.2' end='192.168.254.254' />
+       </dhcp>
+     </ip>
+   </network>
+(if the 192.168.254.0/24 network is already in use elsewhere on your network, you can choose a different network).
+
+2) Create the network, set it to autostart, and start it:
+
+   virsh net-define /tmp/isolated.xml
+   virsh net-autostart isolated
+   virsh net-start isolated
+3) Edit (using "virsh edit $guestname") the configuration of each guest that uses direct (macvtap) for its network connection and add a new <interface> in the <devices> section similar to the following:
+
+   <interface type='network'>
+     <source network='isolated'/>
+     <model type='virtio'/> <-- This line is optional.
+   </interface>
+4) shutdown, then restart each of these guests.
+
