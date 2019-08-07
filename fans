@@ -9,4 +9,4 @@ sudo touch /etc/modules-load.d/nct6775.conf
 sudo echo "nct6775" >> /etc/modules-load.d/nct6775.conf
 sudo modprobe nct6775
 
-test
+testtest
